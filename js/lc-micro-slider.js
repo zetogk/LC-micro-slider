@@ -8,10 +8,6 @@
 
 (function ($) {
 	var lc_micro_slider = function(element, lcms_settings) {
-
-		console.log('element >>> ', element)
-
-		jQuery(element).append('<ul style="display: none;" id="zgk_lcms_element_list"></ul>');
 		
 		var settings = $.extend({
 			slide_fx		: 'fadeslide',	// (string) sliding effect / none - slide - fade - fadeslide - zoom-in - zoom-out
@@ -26,13 +22,16 @@
 			slideshow_time	: 5000, 	// (int) interval time of the slideshow in milliseconds / 1000 = 1sec	
 			pause_on_hover	: true,		// (bool) pause and restart the autoplay on box hover
 			loader_code		: '<span class="lcms_loader"></span>',	// loading animation code
-			thumbnail  		: false,
-			source  		: [] // {type: 'img' || 'video', source: 'http://image.ext' } if true, dots won't be used
+			thumbnail  		: false,	// (bool) if is true, thumbnails will shown and dots couldn't be shown
+			source  		: [], // {type: 'img' || 'video', source: 'http://image.ext' }
+			height			: '600px',
+
 		}, lcms_settings);
 
-		settings.source.forEach(sliderElement => {
+		jQuery(element).css('height', settings.height);
+		jQuery(element).append('<ul style="display: none;" id="zgk_lcms_element_list"></ul>');
 
-			console.log('sliderElement.source: ', sliderElement.source);
+		settings.source.forEach(sliderElement => {
 
 			switch (sliderElement.type) {
 				case 'img':
