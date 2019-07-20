@@ -25,10 +25,12 @@
 			thumbnail  		: false,	// (bool) if is true, thumbnails will shown and dots couldn't be shown
 			source  		: [], // {type: 'img' || 'video', source: 'http://image.ext' }
 			height			: '600px',
+			width			: '100%',
 
 		}, lcms_settings);
 
 		jQuery(element).css('height', settings.height);
+		jQuery(element).css('width', settings.width);
 		jQuery(element).append('<ul style="display: none;" id="zgk_lcms_element_list"></ul>');
 
 		settings.source.forEach(sliderElement => {
