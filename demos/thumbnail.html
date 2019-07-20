@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LC Micro Slider - basic</title>
+
+
+<script src="https://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
+
+<!--<script src="../assets/jquery.touchSwipe.min.js" type="text/javascript"></script>-->
+<script src="../assets/alloy_finger.min.js" type="text/javascript"></script>
+<script src="../js/lc-micro-slider.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../css/lc-micro-slider.css" />
+<link rel="stylesheet" href="../css/default_style.css" />
+
+</head>
+
+<body>
+	<h1>LC Micro Slider</h1>
+	<h3>A superlight jquery plugin by <a href="http://lcweb.it/" target="_blank">LCweb</a></h3>
+
+	<div id="slide_wrap"></div>
+    
+	<script type="text/javascript">
+    $(document).ready(function(e) {
+        $('#slide_wrap').lc_micro_slider({
+			thumbnail: true,
+			height: '350px', // 600px by default
+			width: '100%', // 100% by default
+			source:[{
+				type: 'img',
+				source: 'http://2.bp.blogspot.com/-tzm2il49f0Y/T229VGZlHwI/AAAAAAAAD7c/9mkPpXhrMNU/s1600/Amazing-Sand-castles-9.jpg'
+			},
+			{
+				type: 'img',
+				source: 'http://1.bp.blogspot.com/-1gkoXocYOKQ/URvSGvXgncI/AAAAAAAAEYY/tQq_jksHKZ4/s1600/china_minecraft_castle.jpg'
+			},
+			{
+				type: 'youtube',
+				source: 'https://www.youtube.com/embed/p8_RTuuCzd8'
+			},
+			{
+				type: 'img',
+				source: 'http://2.bp.blogspot.com/-QHG-yK3ryM4/T02zhBXEkKI/AAAAAAAABC4/y74lU84zF_Q/s1600/Gwynedd+Wales+Conway+Castle.jpg'
+			}]
+		});
+    });
+    </script>
+
+</body>
+</html>
