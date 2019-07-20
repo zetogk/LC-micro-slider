@@ -8,6 +8,10 @@
 
 (function ($) {
 	var lc_micro_slider = function(element, lcms_settings) {
+
+		console.log('element >>> ', element)
+
+		jQuery(element).append('<ul style="display: none;" id="zgk_lcms_element_list"></ul>');
 		
 		var settings = $.extend({
 			slide_fx		: 'fadeslide',	// (string) sliding effect / none - slide - fade - fadeslide - zoom-in - zoom-out
@@ -21,8 +25,29 @@
 			animation_time	: 700, 		// (int) animation timing in millisecods / 1000 = 1sec
 			slideshow_time	: 5000, 	// (int) interval time of the slideshow in milliseconds / 1000 = 1sec	
 			pause_on_hover	: true,		// (bool) pause and restart the autoplay on box hover
-			loader_code		: '<span class="lcms_loader"></span>'	// loading animation code
+			loader_code		: '<span class="lcms_loader"></span>',	// loading animation code
+			thumbnail  		: false,
+			source  		: [] // {type: 'img' || 'video', source: 'http://image.ext' } if true, dots won't be used
 		}, lcms_settings);
+
+		settings.source.forEach(sliderElement => {
+
+			console.log('sliderElement.source: ', sliderElement.source);
+
+			switch (sliderElement.type) {
+				case 'img':
+					jQuery('#zgk_lcms_element_list').append('<li lcms_img="'+sliderElement.source+'"></li>');
+					break;
+
+				case 'youtube':
+					jQuery('#zgk_lcms_element_list').append('<li class="lcms_contents_fullheight lcms_nopadding"><iframe width="100%" height="100%" src="'+sliderElement.source+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>');
+					break;
+			
+				default:
+					break;
+			}
+			
+		});
 
 	
 		// Global variables accessible only by the plugin
@@ -35,7 +60,6 @@
 			is_playing : false,
 			paused_on_hover : false 
 		};	
-		
 		
 		// .data() system to avoid issues on multi instances
 		var $lcms_wrap_obj = $(element);
@@ -80,11 +104,36 @@
 			}
 			
 			// populate with full nav dots
-			if(settings.nav_dots && vars.slides.length > 1) {
+			if(settings.nav_dots && vars.slides.length > 1 && !settings.thumbnail) {
 				var code = '<div class="lcms_nav_dots">';
 				for(a=0; a<vars.slides.length; a++) {code += '<span rel="'+a+'"></span>';}
-				
+
 				$wrap_obj.find('.lcms_wrap').addClass('lcms_has_nav_dots').prepend(code+'</div>');	
+				$wrap_obj.find('.lcms_nav_dots span').first().addClass('lcms_sel_dot');
+			}
+
+			if (settings.thumbnail) {
+				var code = '<div class="lcms_nav_dots zgk_lcms_nav_thumbnail">';
+				for(a=0; a<vars.slides.length; a++) {
+
+					switch (settings.source[a].type) {
+						case 'img':
+							var thumbnail = settings.source[a].source;
+							code += '<span width="50px" rel="'+a+'"><img height="50px" width="50px" src="'+thumbnail+'" /></span>';
+							break;
+		
+						case 'youtube':
+							var thumbnail = 'https://img.icons8.com/dotty/80/000000/video-file.png';
+							code += '<span width="50px" rel="'+a+'"><img style="background: white;" height="50px" width="50px" src="'+thumbnail+'" /></span>';
+							break;
+					
+						default:
+							break;
+					}
+
+				}
+				
+				$wrap_obj.find('.lcms_wrap').addClass('').prepend(code+'</div>');	
 				$wrap_obj.find('.lcms_nav_dots span').first().addClass('lcms_sel_dot');
 			}
 			

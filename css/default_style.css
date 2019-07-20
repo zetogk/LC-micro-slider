@@ -143,6 +143,28 @@
 	box-shadow: 0 -9px 0 0 #cfcfcf inset;
 }
 
+/* default nav dots (For thumbnails) */
+.lcms_nav_dots.zgk_lcms_nav_thumbnail span {
+	border: none !important;
+	border-radius: none !important;
+	background: none !important;
+	display: inline-block;
+	height: 50px;
+	width: 50px;	
+	margin: 0 2px;
+	cursor: pointer;
+	
+	-webkit-transition: all .3s ease; 
+	-ms-transition: 	all .3s ease; 
+	transition: 		all .3s ease;
+}
+.lcms_nav_dots span:not(.lcms_sel_dot):hover {	
+	box-shadow: 0 -9px 0 0 #999 inset;
+}
+.lcms_nav_dots span.lcms_sel_dot {
+	box-shadow: 0 -9px 0 0 #cfcfcf inset;
+}
+
 
 /* default play/pause style */
 .lcms_play {
