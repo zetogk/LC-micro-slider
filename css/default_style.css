@@ -153,17 +153,18 @@
 	-ms-transition: 	all .3s ease; 
 	transition: 		all .3s ease;
 }
-.lcms_nav_dots span:not(.lcms_sel_dot):hover {	
+
+/* Hidden dots box-shadow */
+/* .lcms_nav_dots span:not(.lcms_sel_dot):hover {	
 	box-shadow: 0 -9px 0 0 #999 inset;
 }
 .lcms_nav_dots span.lcms_sel_dot {
 	box-shadow: 0 -9px 0 0 #cfcfcf inset;
 }
-
+ */
 
 /* default play/pause style */
 .lcms_play {
 	right: 10px;	
 	left: auto;
 }
-
