@@ -130,6 +130,39 @@
 	cursor: default !important;	
 }
 
+/* For tooltip thumbnails */
+.zgk_lcms_tooltip {
+	position: relative;
+}
+
+.zgk_lcms_tooltip .zgk_lcms_tooltip_content {
+	visibility: hidden;
+	width: 120px;
+	background-color: white;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+
+	width: 120px;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+}
+
+.zgk_lcms_tooltip:hover .zgk_lcms_tooltip_content {
+	visibility: visible;
+}
+
+.zgk_lcms_tooltip_content img {
+	opacity: 0.8;
+	width: 100%;
+}
+
 
 
 

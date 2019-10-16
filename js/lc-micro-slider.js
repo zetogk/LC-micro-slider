@@ -120,7 +120,17 @@
 					switch (settings.source[a].type) {
 						case 'img':
 							var thumbnail = settings.source[a].source;
-							code += '<span width="50px" rel="'+a+'"><img height="50px" width="50px" src="'+thumbnail+'" /></span>';
+
+							if (settings.hoverThumbnail) {
+
+								code += '<span class="zgk_lcms_tooltip" width="50px" rel="'+a+'"><img height="50px" width="50px" src="'+thumbnail+'" /><div class="zgk_lcms_tooltip_content"><img src="'+thumbnail+'" /></div></span>';
+
+							} else {
+
+								code += '<span width="50px" rel="'+a+'"><img height="50px" width="50px" src="'+thumbnail+'" /></span>';
+
+							}
+							
 							break;
 		
 						case 'youtube':
