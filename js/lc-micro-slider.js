@@ -43,6 +43,10 @@
 				case 'youtube':
 					jQuery('#zgk_lcms_element_list').append('<li class="lcms_contents_fullheight lcms_nopadding"><iframe width="100%" height="100%" src="'+sliderElement.source+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></li>');
 					break;
+
+				case 'custom-html':
+					jQuery('#zgk_lcms_element_list').append('<li class="lcms_contents_fullheight lcms_nopadding">'+sliderElement.source+'</li>');
+					break;
 			
 				default:
 					break;
@@ -274,7 +278,17 @@
 						vars.cached_img.push( this.src );
 					}).attr('src', vars.slides[ prev_load ].img);
 				}
-			}	
+			}
+
+			/* Apply bug size for nav buttons */
+			if (settings.bigNav) {
+
+				console.log('Here');
+
+				jQuery(document).find('.lcms_nav', '.lcms_prev', '.lcms_next').addClass('x2');
+
+			}
+
 		};
 		
 		

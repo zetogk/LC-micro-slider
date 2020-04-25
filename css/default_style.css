@@ -95,6 +95,13 @@
 	-ms-transition: 	all .2s ease-in; 
 	transition: 		all .2s ease-in;
 }
+
+.lcms_nav.x2 *,
+.lcms_play.x2 span {
+	width: 54px;
+	height: 54px;
+}
+
 .lcms_nav > *:not(.lcms_disabled_btn):hover,
 .lcms_play span:not(.lcms_disabled_btn):hover {
 	box-shadow: 0 0 3px rgba(0,0,0, 0.2);
@@ -114,6 +121,13 @@
 }
 .lcms_disabled_btn {
 	opacity: 0.5;	
+}
+
+.lcms_prev.x2:before,
+.lcms_next.x2:before,
+.lcms_play.x2 *:before {
+	font-size: 27px;
+	margin-top: 16px;
 }
 
 /* default nav dots */
